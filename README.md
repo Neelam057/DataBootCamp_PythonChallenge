@@ -1,5 +1,5 @@
 # Python-Challenge
-In this challenge, we were given two CSV files as a resource. We were required to create Python scripts to analyze the data in these CSV files and export the outputs to text files in the respective folders.
+In this challenge, we were given PyBank and PyPoll data files as a resource. We were required to create Python scripts to analyze the data in these CSV files and export the outputs to text files in the respective folders.
 
 ## 1. PyBank Analysis
 
@@ -27,7 +27,7 @@ https://github.com/Neelam057/DataBootCamp_VBA/blob/main/Submission/Screenshot_Q1
 
 ### Methodology
 
-####Data Loading:
+#### Data Loading:
 Load the dataset using csv reader.
 
 #### Data Analysis and Calculation:
@@ -39,7 +39,7 @@ https://github.com/Neelam057/DataBootCamp_VBA/blob/main/Submission/Screenshot_Q1
 #### Summary Report:
 Output the key statistics in a text file.
 
-## PyPoll Analysis
+## 2. PyPoll Analysis
 
 ### Overview
 The PyPoll project is a Python-based analysis of election polling data. The objective of the analysis is to determine key voting outcomes, including the total number of votes cast, the breakdown of votes for each candidate, and the identification of the winner of the election. This analysis was conducted using Python.
@@ -62,7 +62,7 @@ https://github.com/Neelam057/DataBootCamp_VBA/blob/main/Submission/Screenshot_Q1
 
 ### Methodology
 
-####Data Loading:
+#### Data Loading:
 Load the dataset using csv reader in python.
 
 #### Data Analysis and Calculation:
