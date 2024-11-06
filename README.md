@@ -23,7 +23,8 @@ The dataset used in this project is a CSV file containing monthly financial reco
 
 Date: The date of the record (in YYYY-MM format).
 Profit/Losses: The profit or loss for that month.
-https://github.com/Neelam057/DataBootCamp_VBA/blob/main/Submission/Screenshot_Q1.png
+
+![Image Alt](https://github.com/Neelam057/DataBootCamp_PythonChallenge/blob/main/Starter_Code/PyBanks_SampleData.png)
 
 ### Methodology
 
@@ -34,7 +35,8 @@ Load the dataset using csv reader.
 Performed the analysis and used list and dictionaries to fetch and store data. 
 
 #### Results:
-https://github.com/Neelam057/DataBootCamp_VBA/blob/main/Submission/Screenshot_Q1.png
+
+![Image Alt](https://github.com/Neelam057/DataBootCamp_PythonChallenge/blob/main/Starter_Code/PyBanks_Result.png)
 
 #### Summary Report:
 Output the key statistics in a text file.
@@ -58,7 +60,7 @@ Voter ID: A unique identifier for each voter.
 County: The county or district where the vote was cast.
 Candidate: The name of the candidate the voter voted for.
 
-https://github.com/Neelam057/DataBootCamp_VBA/blob/main/Submission/Screenshot_Q1.png
+![Image Alt](https://github.com/Neelam057/DataBootCamp_PythonChallenge/blob/main/Starter_Code/PyPoll_SampleData.png)
 
 ### Methodology
 
@@ -72,7 +74,8 @@ Determine the Percentage of Votes for each candidate.
 Identify the Winner (candidate with the highest vote count). 
 
 #### Results:
-https://github.com/Neelam057/DataBootCamp_VBA/blob/main/Submission/Screenshot_Q1.png
+
+![Image Alt](https://github.com/Neelam057/DataBootCamp_PythonChallenge/blob/main/Starter_Code/PyPoll_Results.png)
 
 #### Summary Report:
 Output a text summary showing the total votes, the percentage of votes for each candidate, and the election winner
