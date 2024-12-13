@@ -21,23 +21,25 @@ By conducting this analysis, the goal is to help the user understand its financi
 ### Dataset
 The dataset used in this project is a CSV file containing monthly financial records for the bank. Each record contains the following columns:
 
-Date: The date of the record (in YYYY-MM format).
+Date: The date of the record
 Profit/Losses: The profit or loss for that month.
-https://github.com/Neelam057/DataBootCamp_VBA/blob/main/Submission/Screenshot_Q1.png
+
+![Image Alt](https://github.com/Neelam057/DataBootCamp_PythonChallenge/blob/main/Starter_Code/PyBanks_SampleData.png)
 
 ### Methodology
 
-#### Data Loading:
+#### 1.Data Loading:
 Load the dataset using csv reader.
 
-#### Data Analysis and Calculation:
+#### 2.Data Analysis and Calculation:
 Performed the analysis and used list and dictionaries to fetch and store data. 
 
-#### Results:
-https://github.com/Neelam057/DataBootCamp_VBA/blob/main/Submission/Screenshot_Q1.png
+#### 3.Results:
 
-#### Summary Report:
-Output the key statistics in a text file.
+![Image Alt](https://github.com/Neelam057/DataBootCamp_PythonChallenge/blob/main/Starter_Code/PyBanks_Result.png)
+
+#### 4.Summary Report:
+Lastly, Output the key statistics in a text file.
 
 ## 2. PyPoll Analysis
 
@@ -58,23 +60,24 @@ Voter ID: A unique identifier for each voter.
 County: The county or district where the vote was cast.
 Candidate: The name of the candidate the voter voted for.
 
-https://github.com/Neelam057/DataBootCamp_VBA/blob/main/Submission/Screenshot_Q1.png
+![Image Alt](https://github.com/Neelam057/DataBootCamp_PythonChallenge/blob/main/Starter_Code/PyPoll_SampleData.png)
 
 ### Methodology
 
-#### Data Loading:
+#### 1.Data Loading:
 Load the dataset using csv reader in python.
 
-#### Data Analysis and Calculation:
+#### 2.Data Analysis and Calculation:
 Calculate the Total Number of Votes.
 Calculate the Total Votes for Each Candidate.
 Determine the Percentage of Votes for each candidate.
 Identify the Winner (candidate with the highest vote count). 
 
-#### Results:
-https://github.com/Neelam057/DataBootCamp_VBA/blob/main/Submission/Screenshot_Q1.png
+#### 3.Results:
 
-#### Summary Report:
-Output a text summary showing the total votes, the percentage of votes for each candidate, and the election winner
+![Image Alt](https://github.com/Neelam057/DataBootCamp_PythonChallenge/blob/main/Starter_Code/PyPoll_Results.png)
+
+#### 4.Summary Report:
+Finally, Output a text summary showing the total votes, the percentage of votes for each candidate, and the election winner
 
 
