@@ -1,83 +1,77 @@
-# Import OS module for working with files and directories and to create file paths across operating systems
+# Dependencies
+import csv
 import os
 
-# Import CSV module to read .csv files and write to it
-import csv
+# Files to load and output
+file_to_load = os.path.join("Resources", "budget_data.csv")  # File path for input data
+file_to_output = os.path.join("analysis", "Budget_Analysis_Report.txt")  # File path for the output report
 
-# Set path for the source file
-budget_data = os.path.join("..", "Resources", "budget_data.csv")
+# Define variables to track the financial data
+total_months = 0  # Counter for total months in dataset
+month_of_change = []  # List to track month-over-month changes
+net_change_list = []  # List to store changes in "Profit/Losses" between months
+greatest_increase = ["", 0]  # Store month and value of greatest profit increase
+greatest_decrease = ["", 9999999999999999999]  # Store month and value of greatest loss decrease
+total_net = 0  # Track the total net amount of "Profit/Losses"
 
-# Open and read csv file
-with open (budget_data, 'r') as csvfile:
-    csvreader = csv.reader(csvfile, delimiter = ',')
+# Open and read the csv
+with open(file_to_load) as financial_data:
+    reader = csv.reader(financial_data)
 
-# Read the header row and store it
-    csvheader = next(csvreader)
- 
-# Declare variables and set initial values
-    total_months = 0
-    total_net = 0
-    previous_month_profit = 0
-    current_month_profit = 0
-    change = 0
-    total_change = 0
-    
-# Declare lists and dictionaries to store values
-    date_list = []
-    profit_loss_list = []
-    change_list = []
-    increase = {"date": "", "amount": 0}
-    decrease = {"date": "", "amount": 0}
+    # Read the header row
+    header = next(reader)
 
-# Loop through each row of csv file
-    for row in csvreader:
-# Create lists to store data for date and profit/loss column separately
-        date_list.append(row[0])
-# Set the initial value of profit/loss column as 
-        profit_loss_list.append(row[1])
-# Calculate change in profit/loss column over the entire period
-        total_months += 1
-# Calculate the total profit/loss over entire period by adding values to the column as we move through the loop
-        total_net += int(row[1])
-# As we dont have previous profit/loss to compare data in first entry so, check if its the first row, skip first row
-        if total_months == 1:
-            previous_month_profit = int(row[1]) 
-        else: 
-            current_month_profit = int(row[1]) 
-            change = current_month_profit - previous_month_profit 
-            change_list.append(change)
-            total_change += int(change) 
-            average_change = round(total_change / (total_months -1),2) 
+    # Extract first row to avoid appending to net_change_list
+    first_row = next(reader)
 
-# Reset the values
-            previous_month_profit = current_month_profit   
+    # Track the total and net change
+    total_months += 1
+    total_net += int(first_row[1])  # Add the first month's profit/loss
+    prev_net = int(first_row[1])  # Store the first month's profit/loss for comparison
 
-# Calculate greatest increase in profits over entire period and also the date of the maximum profit
-        if change > increase["amount"]:
-            increase["amount"] = change
-            increase["date"] = row[0] 
+    # Process each row of data
+    for row in reader:
 
-# Calculate greatest decrease in profits over entire period and also the date of the minimum profit
-        if change < decrease["amount"]:
-            decrease["amount"] = change
-            decrease["date"] = row[0] 
-    
-# Generate summary
-output = f"""Financial Analysis
-----------------------------
-Total Months: {total_months}
-Total: ${total_net}
-Average Change: ${average_change}
-Greatest Increase in Profits: {increase["date"]} (${increase["amount"]})
-Greatest Decrease in Profits: {decrease["date"]} (${decrease["amount"]})
-"""
+        # Track the total
+        total_months += 1  # Increment the total month count
+        total_net += int(row[1])  # Add the current month's profit/loss to the total
+
+        # Track the net change
+        net_change = int(row[1]) - prev_net  # Calculate month-over-month change
+        prev_net = int(row[1])  # Update previous month's profit/loss for the next iteration
+        net_change_list += [net_change]  # Add this month's change to the list
+        month_of_change += [row[0]]  # Add the month to the change list
+
+        # Calculate the greatest increase in profits (month and amount)
+        if net_change > greatest_increase[1]:
+            greatest_increase[0] = row[0]
+            greatest_increase[1] = net_change
+
+        # Calculate the greatest decrease in losses (month and amount)
+        if net_change < greatest_decrease[1]:
+            greatest_decrease[0] = row[0]
+            greatest_decrease[1] = net_change
+
+# Calculate the average net change across the months
+net_monthly_avg = sum(net_change_list) / len(net_change_list)
+
+# Generate output summary
+output = (
+    f"Financial Analysis\n"
+    f"----------------------------\n"
+    f"Total Months: {total_months}\n"
+    f"Total: ${total_net}\n"
+    f"Average Change: ${net_monthly_avg:.2f}\n"
+    f"Greatest Increase in Profits: {greatest_increase[0]} (${greatest_increase[1]})\n"
+    f"Greatest Decrease in Profits: {greatest_decrease[0]} (${greatest_decrease[1]})\n"
+)
+
+# Print the output (to terminal)
 print(output)
 
-# Create a text file to export all the analysis result and set the path of the text file
-csvpath = os.path.join("..", "Analysis","Budget_Analysis_Report.txt")
-
-with open(csvpath, 'w') as datafile:
-    datafile.write(output)
+# Export the results to a text file
+with open(file_to_output, "w") as txt_file:
+    txt_file.write(output)
 
     
 
